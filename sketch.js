@@ -27,14 +27,14 @@ function setup() {
 // function to display UI
 function draw() {
   background(bg);
-if(position !== undefined){
+
   if(keyDown(LEFT_ARROW)){
-    updateHeight(+10,0);
+    updateHeight(-10,0);
     balloon.addAnimation("hotAirBalloon",balloonImage2);
     //write code to move air balloon in left direction
   }
   else if(keyDown(RIGHT_ARROW)){
-    updateHeight(-10,0);
+    updateHeight(+10,0);
     balloon.addAnimation("hotAirBalloon",balloonImage2);
     
   }
@@ -47,9 +47,9 @@ if(position !== undefined){
   else if(keyDown(DOWN_ARROW)){
     updateHeight(0,+10);
     balloon.addAnimation("hotAirBalloon",balloonImage2);
-    balloon.scale=balloon.scale-0.01;
+    balloon.scale=balloon.scale+0.01;
 
-  }
+  
 }
 
   drawSprites();
@@ -60,7 +60,7 @@ if(position !== undefined){
 }
 
 function readHeight(data){
-  position=data.val();
+  height=data.val();
   balloon.x=height.x;
   balloon.y=height.y;
 }
